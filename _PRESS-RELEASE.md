@@ -18,27 +18,37 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+N-Queens Javscript Recursive Solution Visualizer
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+Explore and easily understand an extremely efficient solution to the N-Queens puzzle with vivid visuals that are simple for even beginner programmers to follow.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+Learn an extremely efficient algorithm in Javascript involving bitwise operation and symmetry optimization. Easy-to-follow visuals make this complex algorithm simple to understand. Demystify one of the most infamous recursion problems in computer science!
 
 ## Problem ##
   > Describe the problem your product solves.
+Recursion is often a confusing topic for many, especially for beginners in programming. N-Queens is particularly complex. The algorithm presented in this application is extremely fast; it can count the number of 10-Queens solutions in only Javascript in a laptop browser console in less than one millisecond! However, this adds further complicateion to other N-Queens algorithms by using bitwise operation and symmetry optimization.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+N-Queens Javascript Recursive Solution Visualizer will demystify a highly complex but efficient Javascript solution to the N-Queens puzzle. Visuals include a diagram that displays each recursive stack and the current value of their variables, as well as a chessboard that populates with queens as the algorithm runs! The algorithm pauses at the beginning and end of each recursive call, allowing the user to examine each variable in the process until he or she clicks to move to the next stack.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+I've always had a passion for recursive algorithms, and I'm so excited that now we have a tool to help everyone see how easy recursion can be, and I hope more people will fall in love with this important and awesome concept in programming. This is also a valuable tool to help review bitwise operation, which many programmers don't get much exposure to because it is seldom used in popular languages such as Javascript. I truly hope everyone will enjoy using this application!
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+Just simply click on the start button, and the algorithm will begin! Keep clicking 'Next' to watch the algorithm progress, and go at your own pace until you understand the algorithm. Look the stacks diagram to see the values of all variables in each recursive stack, and watch the chessboard as the algorithm adds queens to the board and backtracks at dead ends!
+
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+As a beginning programmer, I still struggle quite a bit with understanding recursion. A few weeks ago, I saw an N-Queens counting algorithm that was less complicated than the one presented in this app, and after 15 minutes, I completely gave up on trying to understand it. I was so amazed when I tried out this app and was easily able to understand this even more complicated algorithm in only a few minutes! I can't wait for this tool to be built for other famous recursion problems in computer science. Now I'm really excited about recursion!
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+We hope you enjoy this tool, and we look forward to adding other famous recursive algorithms to the series in the future!
