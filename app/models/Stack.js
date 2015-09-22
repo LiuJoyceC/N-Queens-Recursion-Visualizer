@@ -21,7 +21,8 @@ var Stack = Backbone.Model.extend({
         bit: 0,
         ldBit: params.ld,
         colBit: params.col,
-        rdBit: params.rd
+        rdBit: params.rd,
+        isRow: true
       });
 
       console.log(app.get('stacks'));

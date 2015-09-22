@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/jquery/jquery.min.js"></script>
@@ -7,15 +8,38 @@
     <script src='app/models/Stack.js'></script>
     <script src='app/collections/Stacks.js'></script>
     <script src='app/models/App.js'></script>
+    <script src='app/views/AppView.js'></script>
+    <script src='app/views/StacksView.js'></script>
+    <script src='app/views/StackView.js'></script>
   </head>
+
   <body>
-    <h1>Test</h1>
+    <h1>N-Queens Javscript Recursive Solution Visualizer</h1>
+    <div id="app">
+      <span class="forty">
+        <div id="codewindow"></div>
+        <div id="chessboards">
+          <span id="primary-board"></span>
+          <span id="mirror-board"></span>
+        </div>
+      </span>
+      <span class="sixty">
+        <div id="outervars"></div>
+        <div id="stacks"></div>
+      </span>
+    </div>
   </body>
+
   <script>
     $(document).ready(function() {
       var n = parseInt(prompt('Choose an N between 2 and 6'));
-      console.log(n);
-      new App({ n: n });
+      $('html').on('keydown', function(e) {
+        if (e.which === 55) { // set to 7 key, will change later
+          $('body').trigger('click');
+        }
+      });
+      new AppView({ model: new App({ n: n }) });
     });
   </script>
+
 </html>
