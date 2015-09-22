@@ -1,6 +1,6 @@
 var Stack = Backbone.Model.extend({
 
-  initialize: function(params, options, app) { //params: ld, col, rd, ex1, ex2
+  initialize: function(params, options, app) { //params: ld, col, rd, ex1, ex2, rowNum
     this.set('app', app);
     this.set('stacks', app.get('stacks'));
     var done = app.get('done');
@@ -53,11 +53,12 @@ var Stack = Backbone.Model.extend({
         col: colBit,
         rd: rdBit<<1,
         ex1: this.get('ex2'),
-        ex2: 0
+        ex2: 0,
+        rowNum: this.get('rowNum') + 1
       });
 
     } else {
-      console.log('No more open spots in this row');
+      console.log('No more open spots in Row ' + this.get('rowNum'));
       console.log(this.get('stacks'));
       $('body').one('click', function() {
         this.get('stacks').backtrack();

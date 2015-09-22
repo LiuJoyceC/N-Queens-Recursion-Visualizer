@@ -12,10 +12,9 @@ var RowView = Backbone.View.extend({
 
     for (var i = 0; i < n; i++) {
       if (conflict & Math.pow(2, i)) {
-        $(squares[ mirror ? i : n - 1 - i ]).addClass('conflict').text('confl');
-        //text is just for testing purposes. will remove
+        $(squares[ mirror ? i : n - 1 - i ]).addClass('conflict');
       } else {
-        $(squares[ mirror ? i : n - 1 -i ]).removeClass('conflict').text('open');
+        $(squares[ mirror ? i : n - 1 -i ]).removeClass('conflict');
       }
     }
 
@@ -33,7 +32,7 @@ var RowView = Backbone.View.extend({
     if (bit) {
       var qPos = mirror ? Math.log2(bit) : n - 1 - Math.log2(bit);
       console.log('qPos: ' + qPos);
-      $(squares[qPos]).append('<a>Queen</a>'); // will append image instead
+      $(squares[qPos]).append('<div class="queen"></div>'); // will append image instead
     }
   }
 

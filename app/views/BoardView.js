@@ -9,9 +9,9 @@ var BoardView = Backbone.View.extend({
       htmlString = '<tr>';
       for (var j = 0; j < n; j++) {
         if ((i + j + (n-1)*mirror) % 2) {
-          htmlString += '<td class="light square">light</td>';
+          htmlString += '<td class="light square"></td>';
         } else {
-          htmlString += '<td class="dark square">dark</td>';
+          htmlString += '<td class="dark square"></td>';
         }
       }
       htmlString += '</tr>';

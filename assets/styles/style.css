@@ -1,0 +1,101 @@
+
+html, body {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+/*--- Grid ---*/
+
+#main-header {
+  width: 100%;
+  font-size: 24px;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.forty-col {
+  display: inline-block;
+  width: 40%;
+  height:100%;
+}
+
+.sixty-col {
+  display: inline-block;
+  width: 60%;
+  height: 100%;
+}
+
+
+
+/*--- Chessboards ---*/
+
+#chessboards {
+  padding: 20px 10px;
+  width: 100%;
+}
+
+.board {
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  padding: 10px;
+  width: 50%;
+  margin: 0;
+}
+
+.board table {
+  /*display: table;*/
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.square {
+  border: 1px solid black;
+  position: relative;
+}
+
+.square:after {
+  content:'';
+  display: block;
+  margin-top: 100%;
+}
+
+.square .queen {
+  position: absolute;
+  top: 10%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url('https://storybookstorage.s3.amazonaws.com/items/images/000/009/781/original/AristocratCrown_Transparent_brightgold.png?1416928158');
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+}
+
+.light {
+  background-color: green;
+}
+
+.dark {
+  background-color: blue;
+}
+
+.conflict {
+  opacity: 0.1;
+}
+
+
+/*-- Preload queen image --*/
+
+#preload-image {
+  visibility: hidden;
+  background-image: url('https://storybookstorage.s3.amazonaws.com/items/images/000/009/781/original/AristocratCrown_Transparent_brightgold.png?1416928158')
+}

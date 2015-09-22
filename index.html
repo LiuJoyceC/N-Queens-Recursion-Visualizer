@@ -2,6 +2,7 @@
 <html>
 
   <head>
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
@@ -14,35 +15,48 @@
     <script src='app/views/BoardView.js'></script>
     <script src='app/views/RowView.js'></script>
     <script src='app/views/AppView.js'></script>
-
   </head>
 
   <body>
-    <h1>N-Queens Javscript Recursive Solution Visualizer</h1>
+    <div id="main-header">
+      <h1>N-Queens Javscript Recursive Solution Visualizer</h1>
+    </div>
+
     <div id="app">
-      <span class="forty">
+
+    <!-- Column that is 40% of window width -->
+      <span class="forty-col">
         <div id="codewindow"></div>
+        <div id="message"></div>
         <div id="chessboards">
           <span class="board">
             <table id="primary-board"></table>
-          </span>
-          <span class="board">
+          </span><!--
+          --><span class="board">
             <table id="mirror-board"></table>
           </span>
         </div>
-      </span>
-      <span class="sixty">
+      </span><!--
+
+      Column that is 60% of window width
+      --><span class="sixty-col">
         <div id="outervars"></div>
         <div id="stacks"></div>
       </span>
+
     </div>
+
+    <!-- Hidden from view. Used to preload queen image because
+    it loads slowly the first time -->
+    <div id="preload-image"></div>
+
   </body>
 
   <script>
     $(document).ready(function() {
       var n = parseInt(prompt('Choose an N between 2 and 6'));
       $('html').on('keydown', function(e) {
-        if (e.which === 55) { // set to 7 key, will change later
+        if (e.which === 13) { // press enter instead of click
           $('body').trigger('click');
         }
       });

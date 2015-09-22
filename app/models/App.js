@@ -22,7 +22,7 @@ var App = Backbone.Model.extend({
         rd: 0,
         ex1: excl,
         ex2: n%2 ? excl : 0,
-        done: done
+        rowNum: 1
       });
     }.bind(this));
   },

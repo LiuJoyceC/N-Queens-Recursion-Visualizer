@@ -18,7 +18,6 @@ var AppView = Backbone.View.extend({
   ].join('')),
 
   initialize: function(modelParam) {
-    console.log(this.$el);
     var n = this.model.get('n');
     var stacks = this.model.get('stacks');
     var blankStack = this.model.get('blankStack');
