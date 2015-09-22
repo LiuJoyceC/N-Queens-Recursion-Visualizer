@@ -6,11 +6,15 @@
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
     <script src='app/models/Stack.js'></script>
+    <script src='app/models/Blank.js'></script>
     <script src='app/collections/Stacks.js'></script>
     <script src='app/models/App.js'></script>
-    <script src='app/views/AppView.js'></script>
     <script src='app/views/StacksView.js'></script>
     <script src='app/views/StackView.js'></script>
+    <script src='app/views/BoardView.js'></script>
+    <script src='app/views/RowView.js'></script>
+    <script src='app/views/AppView.js'></script>
+
   </head>
 
   <body>
@@ -19,8 +23,12 @@
       <span class="forty">
         <div id="codewindow"></div>
         <div id="chessboards">
-          <span id="primary-board"></span>
-          <span id="mirror-board"></span>
+          <span class="board">
+            <table id="primary-board"></table>
+          </span>
+          <span class="board">
+            <table id="mirror-board"></table>
+          </span>
         </div>
       </span>
       <span class="sixty">

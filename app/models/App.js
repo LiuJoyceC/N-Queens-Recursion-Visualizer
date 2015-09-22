@@ -9,7 +9,8 @@ var App = Backbone.Model.extend({
       count: 0,
       done: done,
       excl: excl,
-      stacks: new Stacks()
+      stacks: new Stacks(),
+      blankStack: new Blank({conflict: 0, bit: 0})
     });
 
     console.log(this.get('stacks'));

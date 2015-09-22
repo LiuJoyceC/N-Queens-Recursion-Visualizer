@@ -1,7 +1,7 @@
 
 var Stacks = Backbone.Collection.extend({
 
-  model: Stacks,
+  model: Stack,
 
   backtrack: function() {
     console.log('backtrack');

@@ -1,7 +1,7 @@
 
 var AppView = Backbone.View.extend({
 
-  id: 'app',
+  el: '#app',
 
   tableTemplate: _.template([
     '<tr>',
@@ -18,13 +18,29 @@ var AppView = Backbone.View.extend({
   ].join('')),
 
   initialize: function(modelParam) {
+    console.log(this.$el);
+    var n = this.model.get('n');
+    var stacks = this.model.get('stacks');
+    var blankStack = this.model.get('blankStack');
+
     $('#outervars').html(this.tableTemplate({
-      n: this.model.get('n'),
+      n: n,
       doneBin: this.binString(this.model.get('done')),
       exclBin: this.binString(this.model.get('excl'))
     }));
 
-    var stacksView = new StacksView({collection: this.model.get('stacks')});
+    new StacksView({collection: stacks});
+
+console.log('boardview about to run?');
+    new BoardView({
+      collection: stacks,
+      el: '#primary-board'
+    }, n, false, blankStack);
+
+    new BoardView({
+      collection: stacks,
+      el: '#mirror-board'
+    }, n, true, blankStack);
 
     this.model.on('change:count', function() {
       $('#count-times2').text(this.model.get('count')*2);
