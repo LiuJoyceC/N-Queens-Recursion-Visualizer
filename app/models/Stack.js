@@ -11,8 +11,8 @@ var Stack = Backbone.Model.extend({
       console.log('Solutions found: ' + app.get('count'));
       console.log(app.get('stacks'));
       $('body').one('click', function() {
-        //backtrack
-      });
+        app.get('stacks').backtrack();
+      }); //may need to bind if we add code using 'this'
     } else {
       var conflict = params.ld | params.col | params.rd | params.ex1;
       this.set({
@@ -27,7 +27,7 @@ var Stack = Backbone.Model.extend({
       console.log(app.get('stacks'));
       $('body').one('click', function() {
         this.iterateRow();
-      });
+      }.bind(this));
     }
   },
 
@@ -59,8 +59,8 @@ var Stack = Backbone.Model.extend({
       console.log('No more open spots in this row');
       console.log(this.get('stacks'));
       $('body').one('click', function() {
-        //backtrack
-      });
+        this.get('stacks').backtrack();
+      }.bind(this));
     }
   }
 

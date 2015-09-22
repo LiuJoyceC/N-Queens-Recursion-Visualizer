@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script src='app/models/Stack.js'></script>
+    <script src='app/collections/Stacks.js'></script>
+    <script src='app/models/App.js'></script>
+  </head>
+  <body>
+    <h1>Test</h1>
+  </body>
+  <script>
+    $(document).ready(function() {
+      var n = parseInt(prompt('Choose an N between 2 and 6'));
+      console.log(n);
+      new App({ n: n });
+    });
+  </script>
+</html>
