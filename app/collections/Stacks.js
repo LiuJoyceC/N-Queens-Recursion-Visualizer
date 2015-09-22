@@ -4,14 +4,14 @@ var Stacks = Backbone.Collection.extend({
   model: Stack,
 
   backtrack: function() {
-    console.log('backtrack');
-    var aStack = this.pop(); // variable assignment only for the console log
+    var app = this.pop().get('app'); // pops last stack off, and also gets app
+    app.trigger('message','');
     var stacksLeft = this.length;
     if (stacksLeft) {
       this.at(stacksLeft - 1).set('ex2', 0).iterateRow();
     } else {
-      console.log('Algorithm has finished running');
-      console.log('Total solutions found: ' + aStack.get('app').get('count'));
+      app.trigger('message',
+        'Algorithm has finished running. Solutions found: ' + app.get('count')*2);
     }
   }
 

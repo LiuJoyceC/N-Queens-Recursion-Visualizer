@@ -7,9 +7,7 @@ var Stack = Backbone.Model.extend({
     if (params.col === done) {
       app.set('count', app.get('count') + 1);
 
-      console.log('Found a solution');
-      console.log('Solutions found: ' + app.get('count'));
-      console.log(app.get('stacks'));
+      app.trigger('message', 'Found a solution!');
       $('body').one('click', function() {
         app.get('stacks').backtrack();
       }); //may need to bind if we add code using 'this'
@@ -25,7 +23,6 @@ var Stack = Backbone.Model.extend({
         isRow: true
       });
 
-      console.log(app.get('stacks'));
       $('body').one('click', function() {
         this.iterateRow();
       }.bind(this));
@@ -33,7 +30,6 @@ var Stack = Backbone.Model.extend({
   },
 
   iterateRow: function() {
-    console.log('iterateRow');
     var poss = this.get('poss');
     if (poss) {
       var bit = poss & -poss;
@@ -58,8 +54,8 @@ var Stack = Backbone.Model.extend({
       });
 
     } else {
-      console.log('No more open spots in Row ' + this.get('rowNum'));
-      console.log(this.get('stacks'));
+      this.get('app')
+        .trigger('message', 'No more open spots in Row ' + this.get('rowNum'));
       $('body').one('click', function() {
         this.get('stacks').backtrack();
       }.bind(this));

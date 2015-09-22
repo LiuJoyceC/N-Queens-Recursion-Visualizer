@@ -13,7 +13,6 @@ var App = Backbone.Model.extend({
       blankStack: new Blank({conflict: 0, bit: 0})
     });
 
-    console.log(this.get('stacks'));
     // Can later move functionality to view
     $('body').one('click', function() {
       this.beginStack({
@@ -28,7 +27,6 @@ var App = Backbone.Model.extend({
   },
 
   beginStack: function(params) { // obj with ld, col, rd, ex1, ex2
-    console.log('beginStack');
     this.get('stacks').add(new Stack(params, null, this));
   }
 

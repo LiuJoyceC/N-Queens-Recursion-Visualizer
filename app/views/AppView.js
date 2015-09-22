@@ -43,6 +43,10 @@ var AppView = Backbone.View.extend({
     this.model.on('change:count', function() {
       $('#count-times2').text(this.model.get('count')*2);
     }.bind(this));
+
+    this.model.on('message', function(message) {
+      $('#message').text(message);
+    });
   },
 
   binString: function(integer) {

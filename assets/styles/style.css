@@ -32,6 +32,13 @@ html, body {
 }
 
 
+/*-- Message --*/
+
+#message {
+  height: 30px;
+  font-size: 20px;
+  padding: 5px 20px;
+}
 
 /*--- Chessboards ---*/
 
