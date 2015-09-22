@@ -31,7 +31,6 @@ var AppView = Backbone.View.extend({
 
     new StacksView({collection: stacks});
 
-console.log('boardview about to run?');
     new BoardView({
       collection: stacks,
       el: '#primary-board'

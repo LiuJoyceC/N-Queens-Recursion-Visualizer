@@ -28,7 +28,7 @@ var BoardView = Backbone.View.extend({
     this.collection.on('add', function(model) {
       if (model.get('isRow')) {
         rows[rowNum].model = model;
-        rows[rowNum].render();
+        rows[rowNum].render(mirror);
         rowNum++;
       }
     });
@@ -37,7 +37,7 @@ var BoardView = Backbone.View.extend({
       if (model.get('isRow')) {
         rowNum--;
         rows[rowNum].model = blankStack;
-        rows[rowNum].render();
+        rows[rowNum].render(mirror);
       }
     });
 
