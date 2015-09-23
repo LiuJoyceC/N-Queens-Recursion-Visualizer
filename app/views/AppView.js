@@ -4,7 +4,7 @@ var AppView = Backbone.View.extend({
   el: '#app',
 
   tableTemplate: _.template([
-    '<tr>',
+    '<table><tbody><tr>',
       '<td>n: </td>',
       '<td><%= n %></td>',
       '<td>done: </td>',
@@ -14,18 +14,18 @@ var AppView = Backbone.View.extend({
       '<td id="count-times2">0</td>',
       '<td>excl: </td>',
       '<td><%= exclBin %></td>',
-    '</tr>'
+    '</tr></tbody></table>'
   ].join('')),
 
-  initialize: function(modelParam) {
+  initialize: function() {
     var n = this.model.get('n');
     var stacks = this.model.get('stacks');
     var blankStack = this.model.get('blankStack');
 
     $('#outervars').html(this.tableTemplate({
       n: n,
-      doneBin: this.binString(this.model.get('done')),
-      exclBin: this.binString(this.model.get('excl'))
+      doneBin: this.model.binString(this.model.get('done'), n),
+      exclBin: this.model.binString(this.model.get('excl'), n)
     }));
 
     new StacksView({collection: stacks});
@@ -47,15 +47,6 @@ var AppView = Backbone.View.extend({
     this.model.on('message', function(message) {
       $('#message').text(message);
     });
-  },
-
-  binString: function(integer) {
-    var n = this.model.get('n');
-    var bin = integer.toString(2);
-    while (bin.length < n) {
-      bin = "0" + bin;
-    }
-    return bin.slice(bin.length - n);
   }
 
 });

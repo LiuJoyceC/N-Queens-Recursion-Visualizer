@@ -20,23 +20,30 @@ html, body {
 }
 
 .forty-col {
+  position: relative;
+  top: 0;
   display: inline-block;
   width: 40%;
   height:100%;
+  margin-right: 2.5%
 }
 
 .sixty-col {
+  position: relative;
+  top: 0;
   display: inline-block;
-  width: 60%;
+  width: 55%;
   height: 100%;
+  margin-left: 2.5%;
 }
 
 
 /*-- Message --*/
 
 #message {
-  height: 30px;
-  font-size: 20px;
+  height: 50px;
+  font-size: 30px;
+  text-align: center;
   padding: 5px 20px;
 }
 
@@ -87,16 +94,124 @@ html, body {
 
 }
 
-.light {
+.light-square {
   background-color: green;
 }
 
-.dark {
+.dark-square {
   background-color: blue;
 }
 
 .conflict {
   opacity: 0.1;
+}
+
+
+/*-- Stacks --*/
+
+#stacks {
+  border: 4px solid black;
+  margin-top: 20px;
+}
+#stacks,
+#stacks table,
+#stacks-scaffold {
+  width: 100%;
+  height:100%;
+}
+
+#stacks-scaffold td {
+  border-width: 0;
+}
+
+.stack-col {
+  display: inline-block;
+  width: 16.66%;
+  height: 100%;
+  opacity: 50%;
+  border-width: 0;
+  padding: 0;
+}
+
+.stack-block {
+  width: 100%;
+  height: 12.5%;
+  min-height: 90px;
+  color: black;
+  font-size: 12px;
+  line-height: 80%;
+}
+
+.stack-block table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.hidden-block {
+  font-size: 18px;
+  text-align: center;
+  background-color: white;
+}
+
+.hidden-block span {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*.light-block {
+  opacity: 40%;
+}*/
+
+.dark-block {
+  color: white;
+  background-color: inherit;
+  opacity:100%;
+}
+
+#col-1 {
+  background-color: yellow;
+}
+
+#col-2 {
+  background-color: orange;
+}
+
+#col-3 {
+  background-color: red;
+}
+
+#col-4 {
+  background-color: purple;
+}
+
+#col-5 {
+  background-color: blue;
+}
+
+#col-6 {
+  background-color: green;
+}
+
+
+/*-- Code Window --*/
+
+#code-window {
+  margin: 20px;
+  padding: 5px;
+  background-color: #DDDDDD;
+}
+
+/*-- OuterVars Table --*/
+
+#outervars,
+#outervars table {
+  width: 100%;
+  font-size: 30px;
+  background-color: #8D699D;
+  font-weight: bold;
 }
 
 

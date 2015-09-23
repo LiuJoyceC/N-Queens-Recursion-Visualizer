@@ -1,6 +1,7 @@
 var Stack = Backbone.Model.extend({
 
-  initialize: function(params, options, app) { //params: ld, col, rd, ex1, ex2, rowNum
+  //params: ld, col, rd, ex1, ex2, rowNum, darkColor
+  initialize: function(params, options, app) {
     this.set('app', app);
     this.set('stacks', app.get('stacks'));
     var done = app.get('done');
@@ -20,7 +21,8 @@ var Stack = Backbone.Model.extend({
         ldBit: params.ld,
         colBit: params.col,
         rdBit: params.rd,
-        isRow: true
+        isRow: true,
+        nextDark: false
       });
 
       $('body').one('click', function() {
@@ -36,12 +38,14 @@ var Stack = Backbone.Model.extend({
       var ldBit = this.get('ld') | bit;
       var rdBit = this.get('rd') | bit;
       var colBit = this.get('col') | bit;
+      var nextDark = this.get('nextDark');
       this.set({
         bit: bit,
         poss: poss ^ bit,
         ldBit: ldBit,
         colBit: colBit,
-        rdBit: rdBit
+        rdBit: rdBit,
+        nextDark: !nextDark //flips value
       });
 
       this.get('app').beginStack({
@@ -50,7 +54,8 @@ var Stack = Backbone.Model.extend({
         rd: rdBit<<1,
         ex1: this.get('ex2'),
         ex2: 0,
-        rowNum: this.get('rowNum') + 1
+        rowNum: this.get('rowNum') + 1,
+        darkColor: nextDark
       });
 
     } else {

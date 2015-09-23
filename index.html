@@ -26,8 +26,6 @@
 
     <!-- Column that is 40% of window width -->
       <span class="forty-col">
-        <div id="codewindow"></div>
-        <div id="message"></div>
         <div id="chessboards">
           <span class="board">
             <table id="primary-board"></table>
@@ -36,12 +34,47 @@
             <table id="mirror-board"></table>
           </span>
         </div>
+        <div id="message"></div>
+
+
+
+        <div id="code-window">
+          <pre><code>
+CountNQueensSolutions = function(n) {
+  var count = 0;
+  var done = Math.pow(2,n) - 1;
+  var excl = Math.pow(2, Math.floor(n/2)) - 1;
+
+  var innerRecurse = function(ld, col, rd, ex1, ex2) {
+
+    if (col === done) {
+      count++;
+      return;
+    }
+
+    var poss = ~(ld | rd | col | ex1) & done;
+
+    while (poss) {
+      var bit = poss & -poss;
+      poss = poss^bit;
+      innerRecurse((ld|bit)>>1,col|bit,(rd|bit)<<1,ex2,0);
+      x2 = 0;
+    }
+  };
+
+  innerRecurse(0, 0, 0, excl, n%2 ? excl : 0);
+  return count*2;
+};
+          </code></pre>
+        </div>
       </span><!--
+
+
 
       Column that is 60% of window width
       --><span class="sixty-col">
         <div id="outervars"></div>
-        <div id="stacks"></div>
+        <div id="stacks"><table><tr id="stacks-scaffold"></tr></table></div>
       </span>
 
     </div>
