@@ -6,8 +6,6 @@ var StackView = Backbone.View.extend({
   className: 'stack-col',
 
   stackTemplate: function(attributes, rowNum) {
-    console.log('rowNum:');
-    console.log(rowNum);
     var topBlock = _.template([ // temporarily make these divs
       '<div class="stack-block <%= color %> top-block">',
         '<table>',
@@ -44,7 +42,7 @@ var StackView = Backbone.View.extend({
 
     var hiddenBlock = '<div class="stack-block hidden-block"></div>';
     var labelBlock =
-      '<div class="stack-block hidden-block"><span>Stack ' + rowNum + '</span></div>';
+      '<div class="stack-block hidden-block"><div class="new-label"></div><div>Stack ' + rowNum + '</div></div>';
     var coloredBlock =
       _.template('<div class="stack-block <%= color %>"></div>')(attributes);
 
@@ -63,7 +61,7 @@ var StackView = Backbone.View.extend({
 
   initialize: function() {
     if (this.model.get('isRow')) {
-      this.render();
+      this.render(true);
       $('#stacks-scaffold').append(this.$el);
 
       this.model.on('change', function() {
@@ -72,12 +70,19 @@ var StackView = Backbone.View.extend({
     }
   },
 
-  render: function() {
+  render: function(isNew) {
+    var newLabel = isNew ? 'New Stack' : '';
     var attributes = this.model.get('app').binString(this.model.attributes);
     _.extend(attributes, {
       color: this.model.get('darkColor') ? 'dark-block' : 'light-block'
     });
-    this.$el.html(this.stackTemplate(attributes, this.model.get('rowNum')));
+    var labelNode = this.$el
+      .html(this.stackTemplate(attributes, this.model.get('rowNum')))
+      .find('.new-label').text(newLabel);
+
+    $('body').one('click', function() {
+      labelNode.text('');
+    });
   }
 
 });

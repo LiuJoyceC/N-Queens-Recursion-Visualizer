@@ -41,8 +41,6 @@ var App = Backbone.Model.extend({
 
     if (type === 'object') {
       var newObj = {};
-      console.log('integer object is');
-      console.log(integer);
       for (var key in integer) {
         if (typeof integer[key] === 'number') {
           newObj[key] = this.binString(integer[key], n);

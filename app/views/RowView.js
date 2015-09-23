@@ -31,7 +31,6 @@ var RowView = Backbone.View.extend({
     var bit = this.model.get('bit');
     if (bit) {
       var qPos = mirror ? Math.log2(bit) : n - 1 - Math.log2(bit);
-      console.log('qPos: ' + qPos);
       $(squares[qPos]).append('<div class="queen"></div>'); // will append image instead
     }
   }

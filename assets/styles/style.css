@@ -152,13 +152,14 @@ html, body {
   background-color: white;
 }
 
-.hidden-block span {
+.hidden-block div {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
   margin-right: auto;
   margin-left: auto;
   color: black;
+  height: 50%;
 }
 
 /*.light-block {
