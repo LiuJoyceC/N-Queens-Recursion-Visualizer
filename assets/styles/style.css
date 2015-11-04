@@ -50,6 +50,8 @@ html, body {
 /*--- Chessboards ---*/
 
 #chessboards {
+  position: relative;
+  top: -14px;
   padding: 0px 10px;
   width: 100%;
 }
