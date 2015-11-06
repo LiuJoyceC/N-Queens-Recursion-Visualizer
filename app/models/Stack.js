@@ -9,7 +9,7 @@ var Stack = Backbone.Model.extend({
       app.set('count', app.get('count') + 1);
 
       app.trigger('message', 'Found a solution!');
-      $('body').one('click', function() {
+      $('#chessboards').one('click', function() {
         app.get('stacks').backtrack();
       }); //may need to bind if we add code using 'this'
     } else {
@@ -25,7 +25,7 @@ var Stack = Backbone.Model.extend({
         nextDark: false
       });
 
-      $('body').one('click', function() {
+      $('#chessboards').one('click', function() {
         this.iterateRow();
       }.bind(this));
     }
@@ -61,7 +61,7 @@ var Stack = Backbone.Model.extend({
     } else {
       this.get('app')
         .trigger('message', 'No more open spots in Row ' + this.get('rowNum'));
-      $('body').one('click', function() {
+      $('#chessboards').one('click', function() {
         this.get('stacks').backtrack();
       }.bind(this));
     }

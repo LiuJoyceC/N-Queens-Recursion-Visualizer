@@ -14,7 +14,7 @@ var App = Backbone.Model.extend({
     });
 
     // Can later move functionality to view
-    $('body').one('click', function() {
+    $('#chessboards').one('click', function() {
       this.beginStack({
         ld: 0,
         col: 0,

@@ -80,7 +80,7 @@ var StackView = Backbone.View.extend({
       .html(this.stackTemplate(attributes, this.model.get('rowNum')))
       .find('.new-label').text(newLabel);
 
-    $('body').one('click', function() {
+    $('#chessboards').one('click', function() {
       labelNode.text('');
     });
   }

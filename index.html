@@ -23,9 +23,10 @@
   <body>
     <div id="main-header">
       <h1>N-Queens Javscript Recursive Solution Visualizer</h1>
-      <h5>A Powerful Visualization Tool Developed By <a href="http://liujoycec.github.io">Joyce Liu</a> To Help You Understand An Algorithm For A Famous Computer Science Puzzle</h5>
-      <div>Using bitwise operators and symmetry optimization, this ultra efficient algorithm can count all solutions for the 10-Queens puzzle in<br>less than 0.0005 seconds in your laptop browser console! Read about the N-Queens puzzle and about this algorithm at <a href="http://liujoycec.github.io/2015/09/20/n_queens_symmetry/">LiuJoyceC.github.io</a>.</div>
-      <div>Press Enter or click anywhere to advance to the next stack. <a href=".">Click here to start the recursion visualizer over.</a></div>
+      <h5>A Powerful Visualization Tool To Help You Understand An Algorithm To Solve A Famous Computer Science Puzzle</h5>
+      <div><span class="button" id="about-open">Meet the creator and learn more about this project!</span></div>
+      <br>
+      <div>Press Enter or click on the chessboards to advance to the next stack. <a href=".">Click here to start over.</a></div>
     </div>
 
     <div id="app">
@@ -44,7 +45,7 @@
         <div id="message"></div>
 
 
-
+        <div id="code-container">
         <div id="code-window">
           <pre><code>
 CountNQueensSolutions = function(n) {
@@ -74,6 +75,7 @@ CountNQueensSolutions = function(n) {
 };
           </code></pre>
         </div>
+        </div>
       </td><!--
 
 
@@ -88,6 +90,37 @@ CountNQueensSolutions = function(n) {
 
     </div>
 
+    <div class="hidden" id="about">
+      <div>
+        <div id="about-close"><span>Close</span></div>
+        <a href="http://liujoycec.github.io" target="_blank"><div id="meet">
+          <div><h4>Meet the creator</h4></div>
+          <div><img src="https://avatars2.githubusercontent.com/u/12114318?v=3&s=460"/></div>
+          <div>Joyce Liu</div>
+          <div>Software Engineer</div>
+        </div></a>
+        <div>
+          <div>
+            <h4>About the N-Queens Javascript Recursive Solution Visualizer</h4>
+          </div>
+          <div>
+            Using bitwise operators and symmetry optimization, this ultra efficient algorithm can count all solutions for the 10-Queens puzzle in less than 0.0005 seconds in your laptop browser console! Read more about the N-Queens puzzle and about this algorithm at <a href="http://liujoycec.github.io/2015/09/20/n_queens_symmetry/" target="_blank">LiuJoyceC.github.io</a>.
+          </div>
+          <div>
+            If you like this project, please visit the <a href="https://github.com/LiuJoyceC/N-Queens-Recursion-Visualizer" target="_blank">Github repository</a> and give it a star!
+          </div>
+          <div>
+            <div><h4>Tech Stack</h4></div>
+            <div>
+              <span><a href="http://backbonejs.org/" target="_blank"><img class="tech-img" src="https://keyholesoftware.com/wp-content/uploads/Backbone.js-Post-Image.jpg" alt="Backbone.js"/></a></span>
+              <span><a href="https://jquery.com/" target="_blank"><img class="tech-img" src="http://www.nitsan.in/wp-content/uploads/2013/09/jquery.png" alt="jQuery"/></a></span>
+              <!-- <span><a href="https://jquery.com/" target="_blank"><img class="tech-img" src="http://ejohn.org/apps/workshop/adv-talk/jquery_logo.png" alt="jQuery"/></a></span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Hidden from view. Used to preload queen image because
     it loads slowly the first time -->
     <div id="preload-image"></div>
@@ -100,9 +133,15 @@ CountNQueensSolutions = function(n) {
       if ([2,3,4,5,6].indexOf(n) === -1) {
         n = 6;
       };
+      $('#about-open').on('click', function() {
+        $('#about').removeClass('hidden');
+      });
+      $('#about-close').on('click', function() {
+        $('#about').addClass('hidden');
+      })
       $('html').on('keydown', function(e) {
         if (e.which === 13) { // press enter instead of click
-          $('body').trigger('click');
+          $('#chessboards').trigger('click');
         }
       });
       new AppView({ model: new App({ n: n }) });
