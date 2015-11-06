@@ -138,7 +138,12 @@ CountNQueensSolutions = function(n) {
       });
       $('#about-close').on('click', function() {
         $('#about').addClass('hidden');
-      })
+      });
+      $('html').on('keydown', function(e) {
+        if (e.keyCode === 27) { // if escape is pressed
+          $('#about').addClass('hidden');
+        }
+      });
       $('html').on('keydown', function(e) {
         if (e.which === 13) { // press enter instead of click
           $('#chessboards').trigger('click');
