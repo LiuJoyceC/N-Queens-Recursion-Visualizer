@@ -59,6 +59,10 @@ html, body {
   box-shadow: 0px 0px 0px grey;
 }
 
+.button:first-child {
+  margin-right: 40px;
+}
+
 
 /*-- Message --*/
 
@@ -278,6 +282,13 @@ html, body {
 
 #meet img {
   border-radius: 50%
+}
+
+/*-- Explanation --*/
+
+#explanation {
+  margin: 10px 0;
+  width: 96%;
 }
 
 

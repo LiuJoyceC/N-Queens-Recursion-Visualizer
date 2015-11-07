@@ -3,6 +3,7 @@
 
   <head>
     <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+    <!-- In case you prefer to download a local copy through bower instead of using a CDN -->
     <!-- <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/backbone/backbone.js"></script> -->
@@ -24,10 +25,18 @@
     <div id="main-header">
       <h1>N-Queens Javscript Recursive Solution Visualizer</h1>
       <h5>A Powerful Visualization Tool To Help You Understand An Algorithm To Solve A Famous Computer Science Puzzle</h5>
-      <div><span class="button" id="about-open">Meet the creator and learn more about this project!</span></div>
+      <div><span class="button" id="about-open">Meet the creator and learn more about this project!</span> <span class="button" id="explanation-toggle">What's going on here?</span></div>
       <br>
+      <div id="explanation">
+        <i>The following describes how the visuals correspond to the algorithm. To learn how the algorithm itself works, read about it at <a href="http://liujoycec.github.io/2015/09/20/n_queens_symmetry/" target="_blank">LiuJoyceC.github.io</a>. If you have any comments or questions about this application, feel free to leave a comment at that same link.</i>
+        <br>
+        The chessboard to the left corresponds to the algorithm execution. Since this algorithm takes advantage of a symmmetry optimization, the chessboard on the right is the mirror image, shown for completeness, although the algorithm does not actually execute the mirror image arrangments. Each stack (created by successive recursive calls) corresponds to a row in the chessboard. The placement of the queen corresponds to the 1 in the binary representation of the variable 'bit' in that stack, while the remaining available squares correspond to the 1's in the variable 'poss'. Eliminated squares (due to symmetry optimization or conflicts with other queens) are lightened in color.
+        <br>
+        The algorithm shown is not actually what is being run in this application. Instead, it runs a refactored asynchronous version that introduces stopping points and listeners for user input but otherwise imitates the same sequence of code executed by the shown algorithm. This makes it possible for you to examine the process and see each variable's value within each stack without pulling up your browser debugger tools. Otherwise, the real algorithm would finish running within a tiny fraction of a millisecond! Be aware: the stopping points are not placed at the beginning of each recursive call but run up to the beginning of the while loop. This point was chosen because it is more informative to show the variable 'poss' after it has been assigned a value.
+      </div>
       <div>Press Enter or click on the chessboards to advance to the next stack. <a href=".">Click here to start over.</a></div>
     </div>
+
 
     <div id="app">
 
@@ -73,6 +82,9 @@ CountNQueensSolutions = function(n) {
   innerRecurse(0, 0, 0, excl, n%2 ? excl : 0);
   return count*2;
 };
+
+// Learn about this ultra fast algorithm
+// at <a href="http://liujoycec.github.io/2015/09/20/n_queens_symmetry/" target="_blank">LiuJoyceC.github.io</a>!
           </code></pre>
         </div>
         </div>
@@ -104,7 +116,7 @@ CountNQueensSolutions = function(n) {
             <h4>About the N-Queens Javascript Recursive Solution Visualizer</h4>
           </div>
           <div>
-            Using bitwise operators and symmetry optimization, this ultra efficient algorithm can count all solutions for the 10-Queens puzzle in less than 0.0005 seconds in your laptop browser console! Read more about the N-Queens puzzle and about this algorithm at <a href="http://liujoycec.github.io/2015/09/20/n_queens_symmetry/" target="_blank">LiuJoyceC.github.io</a>.
+            Using bitwise operators and symmetry optimization, this ultra efficient algorithm can count all solutions for the 10-Queens puzzle in as little as 0.0005 seconds in your laptop browser console! Read more about the N-Queens puzzle and about this algorithm at <a href="http://liujoycec.github.io/2015/09/20/n_queens_symmetry/" target="_blank">LiuJoyceC.github.io</a>.
           </div>
           <div>
             If you like this project, please visit the <a href="https://github.com/LiuJoyceC/N-Queens-Recursion-Visualizer" target="_blank">Github repository</a> and give it a star!
@@ -129,6 +141,8 @@ CountNQueensSolutions = function(n) {
 
   <script>
     $(document).ready(function() {
+      $('#explanation').hide();
+      var explanation = false;
       var n = parseInt(prompt('Choose an N between 2 and 6. If invalid, N will default to 6.'));
       if ([2,3,4,5,6].indexOf(n) === -1) {
         n = 6;
@@ -147,6 +161,17 @@ CountNQueensSolutions = function(n) {
       $('html').on('keydown', function(e) {
         if (e.which === 13) { // press enter instead of click
           $('#chessboards').trigger('click');
+        }
+      });
+      $('#explanation-toggle').on('click', function() {
+        if (explanation) {
+          $('#explanation').hide();
+          $('#explanation-toggle').text("What's going on here?");
+          explanation = false;
+        } else {
+          $('#explanation').show();
+          $('#explanation-toggle').text("Ok, got it!");
+          explanation = true;
         }
       });
       new AppView({ model: new App({ n: n }) });
